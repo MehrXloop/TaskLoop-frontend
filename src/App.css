@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar{
+ padding: 2%;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c9184a;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo{
+  display: flex;
+  align-items: center;
+  color: #fff0f3;
 }
+ul{
+  list-style-type: none;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+.navbar li{
+  display: inline;
+  padding: 0 10px;
+  color: #fff0f3;
+  font-size: 1.2em;
+}
+.navbar li:hover{
+  color: violet;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% auto;
+  /* background-color: blue; */
+  flex-direction: column;
+}
+.formContainer h1{
+  margin: 1% 0;
+}
+.form{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+label{
+font-size: 1.2em;
+}
+input{
+  margin-bottom: 2%;
+  padding: 3%;
+  border:2px solid #c9184a;
+  outline: none;
+  border-radius: 10px;
+}
+.form button{
+  width: fit-content;
+  padding: 3%;
+  font-size: 1.2em;
+  background-color: #c4c0c0;
+  color: white;
+  margin: 1% auto;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form button:hover , .list button:hover{
+  background-color: #c9184a;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.listContainer{
+  /* background-color: darksalmon; */
+  margin: 2%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list{
+  /* background-color: tomato; */
+  margin: 2% auto;
+  width: 70%;
+  padding: 0 2%;
+ color: #c9184a;
+}
+.list h1{
+  text-align: center;
+}
+.list p{
+  margin: 1%;
+}
+.list p span, .list h1 span, .list p div{
+  color: black;
+}
+.list p div{
+  padding: 0 5%;
+}
+.list button{
+  width: fit-content;
+  padding: 1%;
+  font-size: 1.2em;
+  background-color: #c4c0c0;
+  color: white;
+  margin: 1% auto;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.toggle{
+  cursor: pointer;
 }

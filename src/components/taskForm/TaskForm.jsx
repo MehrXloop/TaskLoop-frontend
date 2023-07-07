@@ -12,7 +12,7 @@ function TaskForm() {
             title: title,
             description: desc,
             assignedMember: name,
-            currentStatus:false
+            currentStatus: false
         }
         fetch('http://localhost:8080/tasks/add', {
             method: 'POST',
@@ -23,28 +23,34 @@ function TaskForm() {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('Note saved successfully!');
+                    setTitle('')
+                    setName('')
+                    setDesc('')
                 } else {
                     throw new Error('Error saving note');
                 }
             })
             .catch(error => {
-                console.error('Error saving note:', error);
+                console.error('Error saving task:', error);
             });
 
     }
     return (
+        <div className='formContainer'>
+            <h1>Add Your Task</h1>
 
-        <form onSubmit={handleSubmit}>
-            <label for="title">Task Title:</label><br />
-            <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)}/><br />
-            <label for="mname">Assignment Member Name:</label><br />
-            <input type="text" id="mname" value={name} onChange={e => setName(e.target.value)}/><br />
-            <label for="desc">description:</label><br />
-            <input type="text" id="desc" value={desc} onChange={e => setDesc(e.target.value)}/><br /><br />
-            <button type='submit'>Submit</button>
+            <form onSubmit={handleSubmit} className='form'>
+                <label for="title">Task Title:</label>
+                <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} required/>
+                <label for="mname">Assigned Member Name:</label>
+                <input type="text" id="mname" value={name} onChange={e => setName(e.target.value)} required/>
+                <label for="desc">description:</label>
+                <input type="text" id="desc" value={desc} onChange={e => setDesc(e.target.value)} required/>
+                <button type='submit'>Submit</button>
 
-        </form>
+            </form>
+
+        </div>
     )
 }
 

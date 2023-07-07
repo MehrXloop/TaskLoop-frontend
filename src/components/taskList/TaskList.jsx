@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import Task from '../task/Task';
 
 function TaskList() {
-
+   
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
         fetch("http://localhost:8080/tasks/all").then((res) => res.json()).then((result) => {
@@ -9,25 +10,14 @@ function TaskList() {
         })
     }, [tasks])
 
-    function handleRemove(id){
-        fetch(`http://localhost:8080/tasks/delete/${id}`, { method: 'DELETE' })
-    }
+    
 
     return (
-        <>
+        <div className='listContainer'>
             <ul>
-                {tasks.map((task) => {
-                    return <>
-                        <li key={task.id}>
-                            <h2>{task.assignedMember}</h2>
-                            <p>{task.description}</p>
-                            <h4>{task.currentStatus === false ? "Incomplete": "complete"}</h4>
-                            <button onClick={()=>handleRemove(task.id)}>Remove</button>
-                        </li>
-                    </>
-                })}
+                {tasks.map((task) => <Task task={task}  key={task.id}/>)}
             </ul>
-        </>
+        </div>
     )
 }
 
